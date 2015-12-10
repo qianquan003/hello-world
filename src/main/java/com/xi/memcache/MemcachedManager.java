@@ -1,11 +1,9 @@
-package com.xi.test;
+package com.xi.memcache;
 import java.util.Date;
 import java.util.List;
 
 import com.danga.MemCached.MemCachedClient;
 import com.danga.MemCached.SockIOPool;
-import com.xi.web.dao.UserDao;
-import com.xi.web.entity.User;
 public class MemcachedManager {
  
    // 创建MemCachedClient全局对象
@@ -127,28 +125,28 @@ public class MemcachedManager {
        MemcachedManager cache = MemcachedManager.getInstance();
        
        // 创建UserDao对象
-       UserDao userDao = new UserDao();
+//       UserDao userDao = new UserDao();
        // 得到集合对象
-       List userList = userDao.getUserList();
+//       List userList = userDao.getUserList();
        
        // 创建User对象
-       User user = null;
-       for (int i=0; i<userList.size(); i++)
-       {
-           // 循环遍历集合对象
-           user = (User)userList.get(i);
-           user.getUid();
-           user.getUname();
-           user.getUpass();
-           
-           // 将集合对象存入缓存中
-           cache.add("userList" + i,user.getUname());
-           
-           // 将集合从缓存中取出
-           String uname = (String)cache.get("userList"+i);
-           
-           System.out.println("从缓存中取得的集合为：" + uname);
-       }
+//       User user = null;
+//       for (int i=0; i<userList.size(); i++)
+//       {
+//           // 循环遍历集合对象
+//           user = (User)userList.get(i);
+//           user.getUid();
+//           user.getUname();
+//           user.getUpass();
+//
+//           // 将集合对象存入缓存中
+//           cache.add("userList" + i,user.getUname());
+//
+//           // 将集合从缓存中取出
+//           String uname = (String)cache.get("userList"+i);
+//
+//           System.out.println("从缓存中取得的集合为：" + uname);
+//       }
     }
 
 }
